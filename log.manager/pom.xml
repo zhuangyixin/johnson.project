@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.johnson</groupId>
 		<artifactId>root</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${johnson.version}</version>
 	</parent>
 	<artifactId>log.manager</artifactId>
 	<name>log manager</name>
