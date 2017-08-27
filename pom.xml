@@ -13,7 +13,7 @@
 	<!-- module list -->
 	<modules>
 		<module>log.manager</module>
-		<module>spring.mvc.download</module>
+		<module>spring.mvc.file</module>
 		<module>common.util</module>
 	</modules>
 
@@ -41,6 +41,10 @@
 		<guava.version>22.0</guava.version>
 		<!-- fastxml -->
 		<fastxml.version>2.8.9</fastxml.version>
+		<!-- apache upload -->
+		<apache.upload.version>1.3.3</apache.upload.version>
+		<!-- common io -->
+		<common.io.version>2.5</common.io.version>
 	</properties>
 
 	<dependencyManagement>
@@ -54,6 +58,11 @@
 			<dependency>
 				<groupId>com.johnson</groupId>
 				<artifactId>log.manager</artifactId>
+				<version>${johnson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.johnson</groupId>
+				<artifactId>spring.mvc.download</artifactId>
 				<version>${johnson.version}</version>
 			</dependency>
 			<!-- unit test dependencies -->
@@ -115,6 +124,19 @@
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
 				<version>${fastxml.version}</version>
+			</dependency>
+
+			<!-- apache upload -->
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${apache.upload.version}</version>
+			</dependency>
+			<!-- common io -->
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${common.io.version}</version>
 			</dependency>
 
 		</dependencies>

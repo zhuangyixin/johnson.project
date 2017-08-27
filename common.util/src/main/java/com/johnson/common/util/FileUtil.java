@@ -2,6 +2,7 @@ package com.johnson.common.util;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,19 +11,19 @@ public final class FileUtil {
 
 	private static final String DEFAULT_ENCODE = "UTF-8";
 
-	public static String read(String path, String fileName) {
+	public static String read(String path, String fileName) throws FileNotFoundException {
 		return read(path, fileName, DEFAULT_ENCODE);
 	}
 
-	public static String read(String path, String fileName, String encode) {
+	public static String read(String path, String fileName, String encode) throws FileNotFoundException {
 		File file = new File(path + File.separator + fileName);
-		if (!file.exists()) {
-			return null;
+		if (!file.exists() || file.isDirectory()) {
+			throw new FileNotFoundException();
 		}
 		StringBuilder strBuilder = new StringBuilder();
 		InputStreamReader reader;
 		try {
-			reader = new InputStreamReader(new FileInputStream(file), "UTF-8");
+			reader = new InputStreamReader(new FileInputStream(file), encode);
 			int character = 0;
 			while ((character = reader.read()) != -1) {
 				strBuilder.append((char) character);
@@ -50,4 +51,5 @@ public final class FileUtil {
 		}
 		return true;
 	}
+	
 }
